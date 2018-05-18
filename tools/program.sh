@@ -3,11 +3,12 @@
 read  -p "Restart ESP8266 in program mode and Press any key to continue... " ANSWER
 
 # Program ESP firmware
-cd /opt/Espressif/ESP8266_SDK/at_v0.20_on_SDKv0.9.3/
-./build_and_program.sh
+#cd /opt/Espressif/ESP8266_SDK/at_v0.20_on_SDKv0.9.3/
+#./build_and_program.sh
 
 # Program bootloader
-/opt/arduino/hardware/tools/avrdude -C/opt/arduino/hardware/tools/avrdude.conf -cusbasp -pm328p -v -Pusb -V -U efuse:w:0x07:m -U hfuse:w:0xDA:m -U lfuse:w:0xE2:m -U flash:w:/opt/arduino/hardware/arduino/bootloaders/atmega/ATmegaBOOT_168_rodi.hex:i
+#/opt/arduino/hardware/tools/avr/bin/avrdude -C/opt/arduino/hardware/tools/avr/etc/avrdude.conf -cusbasp -pm328p -v -Pusb -V -U efuse:w:0x07:m -U hfuse:w:0xDA:m -U lfuse:w:0xE2:m -U flash:w:rodi-bootloader.hex:i
+/opt/arduino/hardware/tools/avr/bin/avrdude -C/opt/arduino/hardware/tools/avr/etc/avrdude.conf -cusbasp -pm328pb -v -Pusb -V -U efuse:w:0x07:m -U hfuse:w:0xDA:m -U lfuse:w:0xE2:m -U flash:w:rodi-bootloader.hex
 
 # Ask user to reboot and start ESP in program mode
 # Ask user to connect to WiFi Network
